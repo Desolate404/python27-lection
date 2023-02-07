@@ -89,35 +89,35 @@
 #В одной конструкции мы можем использовать только один "else"
 #или  не использовать его вообще
 
-password = input('Придумайте свой пароль: ')
-upper_let = password[0].upper()
+# password = input('Придумайте свой пароль: ')
+# upper_let = password[0].upper()
 
-if len(password) <= 8:
-    print('Ваш пароль меньше 8 символов')
+# if len(password) <= 8:
+#     print('Ваш пароль меньше 8 символов')
 
-elif not password.startswith(upper_let):
-    print('Ваш пароль не начинается с большой буквы')
+# elif not password.startswith(upper_let):
+#     print('Ваш пароль не начинается с большой буквы')
 
-else:
-    print('Успешно создан пароль')
+# else:
+#     print('Успешно создан пароль')
 
 "   ----Терминальные операторы-----    "
 #Терминальные операторы - условие в одну строку
 
 #тело1 if условие else тело2
 
-num = int(input())
+# num = int(input())
 
-res = 'hello' if num == 5 else 'Bye'
-print(res)
+# res = 'hello' if num == 5 else 'Bye'
+# print(res)
 
-num = int(input())
-if num % 3 == 0:
-    elif num % 3 == 0 and num % 5 == 0:
-            print('FizzBuzz')
-    elif num % 5 == 0:
-        print('Buzz')
-    elif num % 3 == 0:
-        print('Fizz')
-else:
-    print(num)
+# num = int(input())
+# if num % 3 == 0:
+#     elif num % 3 == 0 and num % 5 == 0:
+#             print('FizzBuzz')
+#     elif num % 5 == 0:
+#         print('Buzz')
+#     elif num % 3 == 0:
+#         print('Fizz')
+# else:
+#     print(num)
