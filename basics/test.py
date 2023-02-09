@@ -1,3 +1,4 @@
-number = int(input(:))
-password = '210' if number == 210 else 'wrong'
-print(password)
+list_ = input().split(',')
+print(list_)
+tuple_ = tuple(list_)
+print(tuple_)
