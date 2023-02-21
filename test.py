@@ -1,3 +1,3 @@
-list_ = [20, 10, 20, 1, 100]
-listmin = min(list_)
-print(listmin)
+from functools import reduce
+words = ['hello', 'world', 'makers', 'bootcamp']
+res = reduce(lambda x,y:x if len(x) > len(y) else y, words)
