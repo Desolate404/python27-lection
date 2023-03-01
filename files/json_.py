@@ -16,7 +16,7 @@ import json
 # dumps - функция которая переводит python обьект в json строку
 
 # десериализация - перевод из json в python
-# load
+# load -ункция которая переводит json строку в python обьект
 # loads - функция которая переводит json строку в python обьект
 
 # print(dir(json))
