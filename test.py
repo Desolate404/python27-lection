@@ -1,39 +1,17 @@
-import json
+# #дан список из чисел nounse target найти два числа из nounce которые в сумме дают target выведите индексы этих чисел
+# nounce = [2,8,15,4,3]target = 11
+# res = [1,4]
 
-#Сериализация - перевод из python в json
-#dump
-#десериализация - перевод из json в python
-#load
+nounce = [3, 6, 3]
+target = 6
 
-#dump
-#dumps - функция,которая переводит python obj
-#load - 
-#loads - функция, которая переводит json строку в python обьект
+res = {}
 
-# python_list = [1,2,3]
-# json_list = json.dumps(python_list) # [1,2,3]
-# print(type(json_list)) # "[1,2,3]"
+for i, num in enumerate(nounce):
+    summa = target - num
+    if summa in res:
+        res = [res[summa], i]
+        break
+    res[num] = i
 
-# json_dict = '{"a":1, "b":2}'
-# python_dict = json.loads(json_dict)
-
-# print(type(json_dict)) #str
-# print(type(python_dict)) # dict
-
-list_ = [
-    1,2,3,
-    4,5,
-    (1,2,3),
-    ('6':1),
-    'hello',
-    True,False,None
-]
-
-with open("test.json", "w") as file:
-    json,dump(list_, file)
-
-
-with open("test.json", "r") as file:
-    res = json.load(file)
-
-print(res)
+print(res) # [1, 4]
