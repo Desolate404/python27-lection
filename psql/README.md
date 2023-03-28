@@ -59,3 +59,98 @@ SELECT columnl, column3 FROM name_of_table;
 ```sql
 DELETE FROM name_of_table WHERE condition;
 -- удаление всех записей из таблицы соответствующих данному условию
+
+
+```sql
+SELECT * FROM name_of_table WHERE column = 'hello';
+-- строгое равенство
+```
+
+```sql
+SELECT * FROM name_of_table WHERE column LIKE '%hello%';
+-- записи включающие в себя данную строку с учетом регистра
+-- aaahello
+-- hello world
+-- hello
+-- Hello world - не пройдет (потому что регистр другой)
+```
+
+```sql
+SELECT * FROM name_of_table WHERE column ILIKE '%hello%';
+-- записи включающие в себя данную строку без учетом регистра
+-- aaahello
+-- hello world
+-- hello
+-- Hello world
+-- Hello
+```
+
+```sql
+SELECT * FROM name_of_table ORDER BY column;
+-- сортировка записей по данному полю в порядке возрастания
+```
+
+```sql
+SELECT * FROM name_of_table ORDER BY column DESC;
+-- сортировка записей по данному полю в порядке убывания
+```
+
+```sql
+SELECT * FROM name_of_table LIMIT 10;
+-- вывод первых 10 записей
+```
+
+```sql
+SELECT * FROM name_of_table OFFSET 10;
+-- пропускаем первые 10 записей, выдает записи после 10-го 
+```
+
+```sql
+SELECT * FROM name_of_table LIMIT 10 OFFSET 5;
+-- пропускаем первые 5 записей
+-- вытаскивает 10 записей
+-- порядок не важен
+-- говорят, это пагинация, хмм...
+```
+# Обновления таблицы
+```sql
+ALTER TABLE name_of_table ADD COLUMN col_name col_type constraint;
+-- добавляет новую колонку в таблицу
+```
+
+
+```sql
+ALTER TABLE name_of_table DROP COLUMN col_name;
+--удаляем колонку из таблицы
+```
+
+```sql
+ALTER TABLE name_of_table RENAME COLUMN col_name TO new_col_name
+-- переименовывание колонки
+```
+```sql
+ALTER TABLE name_of_table ALTER COLUMN col_name SET DATA TYPE new_type;
+-- изменение типа данных
+```
+
+# Ограничения (constraints)
+* UNIQUE - не разрешает дубликаты
+* NOT NULL - требует обязательного заполнения поля
+
+
+# Связи
+## Виды связей
+> Один к одному (one to one)
+> один человек - один профиль
+> один автор - одна автобиография
+
+> Один ко многим (one to many)
+> один блогер - много постов
+> одна марка - много моделей
+> одна страна - много областей
+> один продукт - много коментариев
+
+> Многие во многих (many to many)
+> один разработчик - много проектов, один проект - много разработчиков
+
+
