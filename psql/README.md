@@ -154,6 +154,56 @@ ALTER TABLE name_of_table ALTER COLUMN col_name SET DATA TYPE new_type;
 > Многие во многих (many to many)
 > один разработчик - много проектов, один проект - много разработчиков
 
+## Реализация one2one в postgres
+```sql
+create table author (
+    id serial PRIMARY KEY,
+    name varchar(50),
+    last_name varchar(70)
+);
+
+CREATE TABLE authobiography (
+    id serial PRIMARY KEY,
+    published date,
+    body text,
+    author_id int UNIQUE, -- чтобы создать one - one,
+    добавляет unique
+
+    CONSTRAINT fk_author_bio
+    FOREIGN KEY (author_id) REFERENCES author (id)
+);
+```
+## Реализация many2many в postgres
+```sql
+CREATE TABLE developer (
+    id serial PRIMARY KEY,
+    name varchar(50),
+    age int,
+    expirience int
+);
+
+CREATE TABLE project (
+    id serial PRIMARY KEY,
+    title varchar(100),
+    tz text,
+    deadline date
+);
+
+CREATE TABLE dev_proj (
+    dev_id int,
+    proj_id int,
+
+    CONSTRAINT fk_dev_m2m
+    FOREIGN KEY (dev_id) REFERENCES developer (id),
+
+    CONSTRAINT fk_proj_m2m
+    FOREIGN KEY (proj_id) REFERENCES project (id)
+);
+```
+
+
+
+
 ## реализация one2many в postgres
 ```sql
 CREATE TABLE blogger (
@@ -177,3 +227,14 @@ CREATE TABLE post (
 
 > **INNER JOIN (JOIN)** - достаются только те записи у которых есть дданные в обоих таблицах
 > **FULL JOIN** - дотсаются все записи из первой таьлицы и со второй
+
+```sql
+SELECT * FROM blogger
+JOIN table2 ON blogger.id = table2.t_id;
+```
+
+```sql
+SELECET * FROM developer
+JOIN dev_proj ON developer.id = dev_proj.dev_id
+JOIN project ON project.id = dev.proj.proj_id;
+```
